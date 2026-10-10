@@ -1,0 +1,270 @@
+{
+  "web": {
+    "click": {
+      "omnijev": {
+        "samples": 83,
+        "target_samples": 78,
+        "op": {
+          "correct": 73,
+          "total": 83,
+          "accuracy_percent": 87.95180722891567
+        },
+        "target": {
+          "correct": 59,
+          "total": 78,
+          "accuracy_percent": 75.64102564102564
+        },
+        "joint": {
+          "correct": 54,
+          "total": 78,
+          "accuracy_percent": 69.23076923076923
+        },
+        "abstain_op": 0,
+        "abstain_target": 0
+      },
+      "qwen4b": {
+        "samples": 83,
+        "target_samples": 78,
+        "op": {
+          "correct": 4,
+          "total": 83,
+          "accuracy_percent": 4.819277108433735
+        },
+        "target": {
+          "correct": 38,
+          "total": 78,
+          "accuracy_percent": 48.717948717948715
+        },
+        "joint": {
+          "correct": 1,
+          "total": 78,
+          "accuracy_percent": 1.2820512820512822
+        },
+        "abstain_op": 13,
+        "abstain_target": 30
+      }
+    },
+    "type text": {
+      "omnijev": {
+        "samples": 13,
+        "target_samples": 13,
+        "op": {
+          "correct": 4,
+          "total": 13,
+          "accuracy_percent": 30.76923076923077
+        },
+        "target": {
+          "correct": 11,
+          "total": 13,
+          "accuracy_percent": 84.61538461538461
+        },
+        "joint": {
+          "correct": 4,
+          "total": 13,
+          "accuracy_percent": 30.76923076923077
+        },
+        "abstain_op": 0,
+        "abstain_target": 0
+      },
+      "qwen4b": {
+        "samples": 13,
+        "target_samples": 13,
+        "op": {
+          "correct": 0,
+          "total": 13,
+          "accuracy_percent": 0.0
+        },
+        "target": {
+          "correct": 5,
+          "total": 13,
+          "accuracy_percent": 38.46153846153846
+        },
+        "joint": {
+          "correct": 0,
+          "total": 13,
+          "accuracy_percent": 0.0
+        },
+        "abstain_op": 5,
+        "abstain_target": 7
+      }
+    },
+    "select from a dropdown": {
+      "omnijev": {
+        "samples": 4,
+        "target_samples": 4,
+        "op": {
+          "correct": 2,
+          "total": 4,
+          "accuracy_percent": 50.0
+        },
+        "target": {
+          "correct": 3,
+          "total": 4,
+          "accuracy_percent": 75.0
+        },
+        "joint": {
+          "correct": 1,
+          "total": 4,
+          "accuracy_percent": 25.0
+        },
+        "abstain_op": 0,
+        "abstain_target": 0
+      },
+      "qwen4b": {
+        "samples": 4,
+        "target_samples": 4,
+        "op": {
+          "correct": 2,
+          "total": 4,
+          "accuracy_percent": 50.0
+        },
+        "target": {
+          "correct": 2,
+          "total": 4,
+          "accuracy_percent": 50.0
+        },
+        "joint": {
+          "correct": 2,
+          "total": 4,
+          "accuracy_percent": 50.0
+        },
+        "abstain_op": 1,
+        "abstain_target": 2
+      }
+    }
+  },
+  "webtest": {
+    "click": {
+      "omnijev": {
+        "samples": 86,
+        "target_samples": 77,
+        "op": {
+          "correct": 70,
+          "total": 86,
+          "accuracy_percent": 81.3953488372093
+        },
+        "target": {
+          "correct": 60,
+          "total": 77,
+          "accuracy_percent": 77.92207792207792
+        },
+        "joint": {
+          "correct": 51,
+          "total": 77,
+          "accuracy_percent": 66.23376623376623
+        },
+        "abstain_op": 0,
+        "abstain_target": 0
+      },
+      "qwen4b": {
+        "samples": 86,
+        "target_samples": 77,
+        "op": {
+          "correct": 5,
+          "total": 86,
+          "accuracy_percent": 5.813953488372093
+        },
+        "target": {
+          "correct": 41,
+          "total": 77,
+          "accuracy_percent": 53.246753246753244
+        },
+        "joint": {
+          "correct": 1,
+          "total": 77,
+          "accuracy_percent": 1.2987012987012987
+        },
+        "abstain_op": 15,
+        "abstain_target": 26
+      }
+    },
+    "type text": {
+      "omnijev": {
+        "samples": 11,
+        "target_samples": 11,
+        "op": {
+          "correct": 5,
+          "total": 11,
+          "accuracy_percent": 45.45454545454545
+        },
+        "target": {
+          "correct": 9,
+          "total": 11,
+          "accuracy_percent": 81.81818181818181
+        },
+        "joint": {
+          "correct": 5,
+          "total": 11,
+          "accuracy_percent": 45.45454545454545
+        },
+        "abstain_op": 0,
+        "abstain_target": 0
+      },
+      "qwen4b": {
+        "samples": 11,
+        "target_samples": 11,
+        "op": {
+          "correct": 5,
+          "total": 11,
+          "accuracy_percent": 45.45454545454545
+        },
+        "target": {
+          "correct": 6,
+          "total": 11,
+          "accuracy_percent": 54.54545454545455
+        },
+        "joint": {
+          "correct": 4,
+          "total": 11,
+          "accuracy_percent": 36.36363636363637
+        },
+        "abstain_op": 1,
+        "abstain_target": 3
+      }
+    },
+    "select from a dropdown": {
+      "omnijev": {
+        "samples": 3,
+        "target_samples": 3,
+        "op": {
+          "correct": 1,
+          "total": 3,
+          "accuracy_percent": 33.333333333333336
+        },
+        "target": {
+          "correct": 2,
+          "total": 3,
+          "accuracy_percent": 66.66666666666667
+        },
+        "joint": {
+          "correct": 1,
+          "total": 3,
+          "accuracy_percent": 33.333333333333336
+        },
+        "abstain_op": 0,
+        "abstain_target": 0
+      },
+      "qwen4b": {
+        "samples": 3,
+        "target_samples": 3,
+        "op": {
+          "correct": 0,
+          "total": 3,
+          "accuracy_percent": 0.0
+        },
+        "target": {
+          "correct": 1,
+          "total": 3,
+          "accuracy_percent": 33.333333333333336
+        },
+        "joint": {
+          "correct": 0,
+          "total": 3,
+          "accuracy_percent": 0.0
+        },
+        "abstain_op": 0,
+        "abstain_target": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "mode": "omnijev",
+  "split": "dev",
+  "requested_states": 3,
+  "source_sha256": "f4d5ba81ec7102037c4851fe3462d0178639143b12f6a9d818ae24f0ecbe30e4",
+  "runner_sha256": "0da06db30d3f8e902dabaaf375a80143b33755f6d0be5ea20650f7ca57b983a5",
+  "data_protocol_sha256": "bdcae11f619ed388d57159bd3895c6c434bad3096891a958ab75b13cb1d83b4b",
+  "dtype": "bfloat16",
+  "max_pixels": 200704,
+  "torch_cpu_threads": 8,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "cuda": "12.8",
+  "versions": {
+    "torch": "2.9.1+cu128",
+    "transformers": "5.5.0",
+    "peft": "0.19.1",
+    "Pillow": "12.3.0",
+    "fla-core": "0.5.2",
+    "h5py": "3.16.0"
+  },
+  "base_model_manifest_sha256": "018170b63b123969545b445b7b5412940636f52ff0aac928b006673d30a46207",
+  "adapter_manifest_sha256": "2932e3f3ca5304f196c195349104c874e198a171ccf5a4d35989a99b5a3fe35e",
+  "latency_definition": "Synchronized elapsed wall time for one state and its two questions, including image decoding and processing. Three dev warmups excluded, model loading excluded. Each implementation measured as configured, not a controlled isolated architecture benchmark.",
+  "candidate_scoring": "Qwen non-thinking next-token probabilities conditional on single-token answer letters, with none-of-the-above. Also record full-vocabulary letter mass.",
+  "generation": "Same candidate prompt; enable_thinking=False, do_sample=False, max_new_tokens=8. Only exactly one answer letter after whitespace stripping is valid.",
+  "abstention": "None of the above is a candidate for both; abstentions count wrong. Forced-choice ignores the abstention only for scoring pipelines.",
+  "started_utc": "2026-10-10T03:49:41Z",
+  "branch": true,
+  "temperature": {
+    "noul": 1.1991,
+    "choice": 1.1199,
+    "score": 1.1909
+  },
+  "biases": {
+    "noul": 0.05310856608843584
+  },
+  "model_load_seconds": 21.226261446005083,
+  "warmup_seconds": [
+    4.9606196799868485,
+    2.143524325991166,
+    2.1408450479939347
+  ],
+  "peak_allocated_gib": 9.40794849395752,
+  "peak_reserved_gib": 9.50390625,
+  "completed_utc": "2026-10-10T03:50:18Z",
+  "completed_states": 3,
+  "predictions_sha256": "0a46d25cc09b3eed028d66023490e9da08829786d14bb7f238ee55700779a6d9"
+}

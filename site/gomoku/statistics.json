@@ -1,0 +1,61 @@
+{
+  "records": 300,
+  "questions": 1350,
+  "terminal": {
+    "true": 150,
+    "false": 150
+  },
+  "winner": {
+    "black": 75,
+    "white": 75
+  },
+  "question_counts": {
+    "has_five": 300,
+    "black_count": 300,
+    "white_count": 300,
+    "can_win_now": 150,
+    "opponent_has_immediate_win": 150,
+    "winning_move": 75,
+    "blocking_move": 75
+  },
+  "binary_labels": {
+    "has_five": {
+      "1": 150,
+      "0": 150
+    },
+    "can_win_now": {
+      "1": 75,
+      "0": 75
+    },
+    "opponent_has_immediate_win": {
+      "1": 75,
+      "0": 75
+    }
+  },
+  "choice_gold_indices": {
+    "black_count": {
+      "1": 75,
+      "3": 75,
+      "2": 75,
+      "0": 75
+    },
+    "white_count": {
+      "2": 75,
+      "0": 75,
+      "1": 75,
+      "3": 75
+    },
+    "winning_move": {
+      "2": 19,
+      "0": 19,
+      "1": 19,
+      "3": 18
+    },
+    "blocking_move": {
+      "1": 19,
+      "3": 18,
+      "2": 19,
+      "0": 19
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "name": "Custom paired LIBERO-10 frame diagnostic v1; NOT reproduction of official robot_long scores",
+  "created_utc": "2026-10-10T03:47:46Z",
+  "seed": 20261010,
+  "data_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+  "data_manifest_sha256": "e009f1d5740ee23cb221ecfd953fbd22b37b634578eeae0b80461bd43010eec4",
+  "builder_sha256": "ffcaf4252e358dadf570f1b0e25500648c572006ef569cd085431d31b2400cb2",
+  "sampling": "Random 2 dev and 5 test episodes per task; 5 random frames from separate temporal strata per episode; no dev/test episode overlap.",
+  "image_preprocessing": "Vertical flip from explicitly recorded OpenGL convention; agentview and wrist composed once with released mso.panels.compose into lossless PNG, identically reused by both models.",
+  "direction_rule": {
+    "horizon_recorded_steps": 5,
+    "still_max_component_metres": 0.01,
+    "transform": "camera-to-world quaternion from episode XML; delta_camera = R.T @ (eef[t+5]-eef[t]); largest absolute component determines direction; camera +X right, +Y up, +Z toward viewer.",
+    "tie_break": "numpy argmax first axis X then Y then Z",
+    "target": "Future demonstrated net movement, not a unique optimal policy action."
+  },
+  "gripper_rule": "Observations were recorded after env.step(actions[t]); NEXT command is actions[t+1,6]. Panda sign -1=open,+1=close, including repeated commands.",
+  "sources": [
+    "https://github.com/Lifelong-Robot-Learning/LIBERO/blob/master/scripts/create_dataset.py",
+    "https://github.com/ARISE-Initiative/robosuite/blob/v1.4.1/robosuite/models/grippers/panda_gripper.py"
+  ],
+  "abstention": "Both choice pipelines include none-of-the-above. Abstention counts wrong. Forced choice and abstention rate also reported.",
+  "dev_use": "Coordinate/image/sign auditing only; no evaluation-driven threshold or prompt tuning.",
+  "overlap_limitation": "Released OmniJev training overlap with LIBERO demonstrations is unknown; local dev/test split does not establish unseen training examples.",
+  "episode_split": [
+    {
+      "task_id": 0,
+      "file": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+      "dev": [
+        "demo_48",
+        "demo_31"
+      ],
+      "test": [
+        "demo_40",
+        "demo_15",
+        "demo_34",
+        "demo_23",
+        "demo_4"
+      ]
+    },
+    {
+      "task_id": 1,
+      "file": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+      "dev": [
+        "demo_24",
+        "demo_39"
+      ],
+      "test": [
+        "demo_10",
+        "demo_28",
+        "demo_49",
+        "demo_29",
+        "demo_25"
+      ]
+    },
+    {
+      "task_id": 2,
+      "file": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+      "dev": [
+        "demo_45",
+        "demo_42"
+      ],
+      "test": [
+        "demo_18",
+        "demo_9",
+        "demo_32",
+        "demo_16",
+        "demo_13"
+      ]
+    },
+    {
+      "task_id": 3,
+      "file": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+      "dev": [
+        "demo_13",
+        "demo_27"
+      ],
+      "test": [
+        "demo_43",
+        "demo_25",
+        "demo_39",
+        "demo_8",
+        "demo_32"
+      ]
+    },
+    {
+      "task_id": 4,
+      "file": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+      "dev": [
+        "demo_3",
+        "demo_42"
+      ],
+      "test": [
+        "demo_17",
+        "demo_39",
+        "demo_45",
+        "demo_25",
+        "demo_13"
+      ]
+    },
+    {
+      "task_id": 5,
+      "file": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "dev": [
+        "demo_33",
+        "demo_31"
+      ],
+      "test": [
+        "demo_12",
+        "demo_32",
+        "demo_2",
+        "demo_13",
+        "demo_45"
+      ]
+    },
+    {
+      "task_id": 6,
+      "file": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_demo.hdf5",
+      "dev": [
+        "demo_21",
+        "demo_17"
+      ],
+      "test": [
+        "demo_15",
+        "demo_28",
+        "demo_31",
+        "demo_30",
+        "demo_38"
+      ]
+    },
+    {
+      "task_id": 7,
+      "file": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+      "dev": [
+        "demo_0",
+        "demo_3"
+      ],
+      "test": [
+        "demo_7",
+        "demo_47",
+        "demo_36",
+        "demo_46",
+        "demo_45"
+      ]
+    },
+    {
+      "task_id": 8,
+      "file": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_demo.hdf5",
+      "dev": [
+        "demo_42",
+        "demo_20"
+      ],
+      "test": [
+        "demo_26",
+        "demo_2",
+        "demo_36",
+        "demo_28",
+        "demo_47"
+      ]
+    },
+    {
+      "task_id": 9,
+      "file": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_demo.hdf5",
+      "dev": [
+        "demo_3",
+        "demo_47"
+      ],
+      "test": [
+        "demo_17",
+        "demo_30",
+        "demo_21",
+        "demo_41",
+        "demo_31"
+      ]
+    }
+  ],
+  "statistics": {
+    "dev": {
+      "states": 100,
+      "questions": 200,
+      "episodes": 20,
+      "label_counts": {
+        "direction": {
+          "stay_still": 22,
+          "backward": 13,
+          "forward": 18,
+          "up": 5,
+          "left": 7,
+          "down": 19,
+          "right": 16
+        },
+        "gripper": {
+          "close": 52,
+          "open": 48
+        }
+      }
+    },
+    "test": {
+      "states": 250,
+      "questions": 500,
+      "episodes": 50,
+      "label_counts": {
+        "direction": {
+          "forward": 47,
+          "stay_still": 48,
+          "down": 38,
+          "right": 45,
+          "left": 27,
+          "up": 15,
+          "backward": 30
+        },
+        "gripper": {
+          "open": 131,
+          "close": 119
+        }
+      }
+    }
+  },
+  "dev_command_width_audit": {
+    "-1": {
+      "n": 3068,
+      "median_width_change_over_5_steps_m": 0.00015562328950392834
+    },
+    "1": {
+      "n": 2499,
+      "median_width_change_over_5_steps_m": -5.005662258951438e-05
+    }
+  },
+  "file_sha256": {
+    "dev.jsonl": "f4d5ba81ec7102037c4851fe3462d0178639143b12f6a9d818ae24f0ecbe30e4",
+    "test.jsonl": "79ca51cc6df484c97f7cb91bf97832cb7778e5184a2b27f171dfb6de5474e828"
+  }
+}

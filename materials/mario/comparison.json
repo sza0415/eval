@@ -1,0 +1,295 @@
+{
+  "purpose": "Matched-input new Mario annotation prediction experiment, not original benchmark reproduction",
+  "n_states": 200,
+  "n_questions": 800,
+  "verification": "passed: identical IDs and labels; correct argmax, file hashes, and recalculated accuracy",
+  "dataset_revision": "3efa9014cf60b0a68de05b95f7cb76807a342575",
+  "qwen_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "omnijev_revision": "ffe5f436eaf22e20e2f041f8e74e121fd057a6cb",
+  "code_commit": "14dbec4f71e194852c8d7b88ab36ef639493f400",
+  "samples_sha256": "2f816c9c28aca9ead2cbbc2c4f62cc66a8ba0f2f68eecf8ec70d00f9433db3f4",
+  "script_sha256": "d80c6e67c6669b60b52dd5942aaead39aa00694a1970f88abea9105301881554",
+  "mixed_accuracy": {
+    "qwen": 0.47625,
+    "omnijev": 0.53
+  },
+  "omnijev_minus_qwen_percentage_points": 5.375000000000002,
+  "mixed_majority_baseline": 0.60375,
+  "per_question": {
+    "mario_act": {
+      "qwen": {
+        "n": 200,
+        "accuracy": 0.08,
+        "balanced_accuracy": 0.13333333333333333,
+        "majority_accuracy": 0.46,
+        "majority_class": "right_B",
+        "gold_counts": {
+          "right_B": 92,
+          "A": 20,
+          "right_A_B": 53,
+          "NOOP": 11,
+          "right_A": 24
+        },
+        "prediction_counts": {
+          "left": 78,
+          "right_A": 122
+        },
+        "confusion": {
+          "right_B": {
+            "left": 41,
+            "right_A": 51
+          },
+          "A": {
+            "right_A": 10,
+            "left": 10
+          },
+          "right_A_B": {
+            "right_A": 36,
+            "left": 17
+          },
+          "NOOP": {
+            "right_A": 9,
+            "left": 2
+          },
+          "right_A": {
+            "right_A": 16,
+            "left": 8
+          }
+        },
+        "brier": 1.153924908626909,
+        "nll": 3.593733025286093,
+        "ece_10bins": 0.35870987430214885
+      },
+      "omnijev": {
+        "n": 200,
+        "accuracy": 0.195,
+        "balanced_accuracy": 0.16485507246376813,
+        "majority_accuracy": 0.46,
+        "majority_class": "right_B",
+        "gold_counts": {
+          "right_B": 92,
+          "A": 20,
+          "right_A_B": 53,
+          "NOOP": 11,
+          "right_A": 24
+        },
+        "prediction_counts": {
+          "right": 64,
+          "right_B": 61,
+          "right_A": 72,
+          "left": 2,
+          "A": 1
+        },
+        "confusion": {
+          "right_B": {
+            "right": 39,
+            "right_B": 26,
+            "right_A": 26,
+            "left": 1
+          },
+          "A": {
+            "right_B": 9,
+            "right_A": 6,
+            "left": 1,
+            "right": 4
+          },
+          "right_A_B": {
+            "right_A": 20,
+            "right_B": 16,
+            "right": 17
+          },
+          "NOOP": {
+            "right_B": 4,
+            "right_A": 7
+          },
+          "right_A": {
+            "right_A": 13,
+            "right_B": 6,
+            "right": 4,
+            "A": 1
+          }
+        },
+        "brier": 0.8205583885522806,
+        "nll": 1.7920317514997455,
+        "ece_10bins": 0.05631273658013067
+      }
+    },
+    "mario_jump": {
+      "qwen": {
+        "n": 200,
+        "accuracy": 0.495,
+        "balanced_accuracy": 0.5079071164047643,
+        "majority_accuracy": 0.515,
+        "majority_class": "no",
+        "gold_counts": {
+          "no": 103,
+          "yes": 97
+        },
+        "prediction_counts": {
+          "no": 14,
+          "yes": 186
+        },
+        "confusion": {
+          "no": {
+            "no": 8,
+            "yes": 95
+          },
+          "yes": {
+            "yes": 91,
+            "no": 6
+          }
+        },
+        "brier": 0.4961190360498595,
+        "nll": 0.6889919434901565,
+        "ece_10bins": 0.07443218410015105
+      },
+      "omnijev": {
+        "n": 200,
+        "accuracy": 0.485,
+        "balanced_accuracy": 0.5,
+        "majority_accuracy": 0.515,
+        "majority_class": "no",
+        "gold_counts": {
+          "no": 103,
+          "yes": 97
+        },
+        "prediction_counts": {
+          "yes": 200
+        },
+        "confusion": {
+          "no": {
+            "yes": 103
+          },
+          "yes": {
+            "yes": 97
+          }
+        },
+        "brier": 0.6452182288999999,
+        "nll": 0.8664362995881559,
+        "ece_10bins": 0.28064550000000005
+      }
+    },
+    "mario_run": {
+      "qwen": {
+        "n": 200,
+        "accuracy": 0.72,
+        "balanced_accuracy": 0.496551724137931,
+        "majority_accuracy": 0.725,
+        "majority_class": "yes",
+        "gold_counts": {
+          "yes": 145,
+          "no": 55
+        },
+        "prediction_counts": {
+          "yes": 199,
+          "no": 1
+        },
+        "confusion": {
+          "yes": {
+            "yes": 144,
+            "no": 1
+          },
+          "no": {
+            "yes": 55
+          }
+        },
+        "brier": 0.448252935750257,
+        "nll": 0.6410824649388931,
+        "ece_10bins": 0.12997664272785187
+      },
+      "omnijev": {
+        "n": 200,
+        "accuracy": 0.725,
+        "balanced_accuracy": 0.5,
+        "majority_accuracy": 0.725,
+        "majority_class": "yes",
+        "gold_counts": {
+          "yes": 145,
+          "no": 55
+        },
+        "prediction_counts": {
+          "yes": 200
+        },
+        "confusion": {
+          "yes": {
+            "yes": 145
+          },
+          "no": {
+            "yes": 55
+          }
+        },
+        "brier": 0.4115838042,
+        "nll": 0.606688106293866,
+        "ece_10bins": 0.10380199999999998
+      }
+    },
+    "mario_hold": {
+      "qwen": {
+        "n": 200,
+        "accuracy": 0.61,
+        "balanced_accuracy": 0.5320819531345847,
+        "majority_accuracy": 0.715,
+        "majority_class": "yes",
+        "gold_counts": {
+          "yes": 143,
+          "no": 57
+        },
+        "prediction_counts": {
+          "yes": 139,
+          "no": 61
+        },
+        "confusion": {
+          "yes": {
+            "yes": 102,
+            "no": 41
+          },
+          "no": {
+            "no": 20,
+            "yes": 37
+          }
+        },
+        "brier": 0.49358094421443,
+        "nll": 0.6869513960130164,
+        "ece_10bins": 0.109581614434719
+      },
+      "omnijev": {
+        "n": 200,
+        "accuracy": 0.715,
+        "balanced_accuracy": 0.5,
+        "majority_accuracy": 0.715,
+        "majority_class": "yes",
+        "gold_counts": {
+          "yes": 143,
+          "no": 57
+        },
+        "prediction_counts": {
+          "yes": 200
+        },
+        "confusion": {
+          "yes": {
+            "yes": 143
+          },
+          "no": {
+            "yes": 57
+          }
+        },
+        "brier": 0.4083405658,
+        "nll": 0.5964892272441514,
+        "ece_10bins": 0.03188799999999992
+      }
+    }
+  },
+  "paired_correctness": {
+    "both_wrong": 340,
+    "qwen_only": 36,
+    "both_correct": 345,
+    "omnijev_only": 79
+  },
+  "limitations": [
+    "Original 735-question identities/prompts/splits unavailable in inspected release",
+    "Samples may overlap OmniJev training; this is not a new held-out benchmark",
+    "Frames within a clip are correlated; no episode-level generalization claim",
+    "Qwen label likelihoods differ from unpublished original A1_raw implementation",
+    "No closed-loop game run or completion-rate measurement"
+  ]
+}

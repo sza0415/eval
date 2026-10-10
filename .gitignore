@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.pyc
+dist/
+.preview/
+# Original standalone exports are retained locally; hosted pages and original
+# decoded screenshots are versioned under site/ instead.
+materials/web/web_offline.html
+materials/web/webtest_offline.html
+materials/libero/omnijev-qwen-libero-offline.html
+materials/libero/report-source/dist/
+materials/libero/results/viewer-data.json
+materials/mario/mario_viewer.html

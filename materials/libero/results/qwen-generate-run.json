@@ -1,0 +1,51 @@
+{
+  "mode": "qwen-generate",
+  "split": "test",
+  "requested_states": 250,
+  "source_sha256": "79ca51cc6df484c97f7cb91bf97832cb7778e5184a2b27f171dfb6de5474e828",
+  "runner_sha256": "0da06db30d3f8e902dabaaf375a80143b33755f6d0be5ea20650f7ca57b983a5",
+  "data_protocol_sha256": "bdcae11f619ed388d57159bd3895c6c434bad3096891a958ab75b13cb1d83b4b",
+  "dtype": "bfloat16",
+  "max_pixels": 200704,
+  "torch_cpu_threads": 8,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "cuda": "12.8",
+  "versions": {
+    "torch": "2.9.1+cu128",
+    "transformers": "5.5.0",
+    "peft": "0.19.1",
+    "Pillow": "12.3.0",
+    "fla-core": "0.5.2",
+    "h5py": "3.16.0"
+  },
+  "base_model_manifest_sha256": "018170b63b123969545b445b7b5412940636f52ff0aac928b006673d30a46207",
+  "adapter_manifest_sha256": "2932e3f3ca5304f196c195349104c874e198a171ccf5a4d35989a99b5a3fe35e",
+  "latency_definition": "Synchronized elapsed wall time for one state and its two questions, including image decoding and processing. Three dev warmups excluded, model loading excluded. Each implementation measured as configured, not a controlled isolated architecture benchmark.",
+  "candidate_scoring": "Qwen non-thinking next-token probabilities conditional on single-token answer letters, with none-of-the-above. Also record full-vocabulary letter mass.",
+  "generation": "Same candidate prompt; enable_thinking=False, do_sample=False, max_new_tokens=8. Only exactly one answer letter after whitespace stripping is valid.",
+  "abstention": "None of the above is a candidate for both; abstentions count wrong. Forced-choice ignores the abstention only for scoring pipelines.",
+  "started_utc": "2026-10-10T04:20:12Z",
+  "pixel_parity_tasks_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "model_load_seconds": 4.9985249010060215,
+  "warmup_seconds": [
+    5.384429412995814,
+    4.173957603998133,
+    4.17815269199491
+  ],
+  "peak_allocated_gib": 8.731135845184326,
+  "peak_reserved_gib": 8.759765625,
+  "completed_utc": "2026-10-10T04:38:07Z",
+  "completed_states": 250,
+  "predictions_sha256": "e57601881ea9e3142726ec31d175f4f8604390fba3c62b8573b4a0bfb565f0d5"
+}

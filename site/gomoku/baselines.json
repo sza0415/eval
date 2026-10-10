@@ -1,0 +1,13 @@
+{
+  "binary_majority_accuracy_percent": {
+    "has_five": 50.0,
+    "can_win_now": 50.0,
+    "opponent_has_immediate_win": 50.0
+  },
+  "fixed_option_position_accuracy_percent": {
+    "black_count": 25.0,
+    "white_count": 25.0,
+    "winning_move": 25.333333333333332,
+    "blocking_move": 25.333333333333332
+  }
+}

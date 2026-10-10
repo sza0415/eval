@@ -1,0 +1,54 @@
+{
+  "purpose": "New matched-input offline annotation prediction, not original score reproduction",
+  "seed": 20261009,
+  "n_states": 200,
+  "n_questions": 800,
+  "n_clips": 110,
+  "pool_states": 2265,
+  "dataset_revision": "3efa9014cf60b0a68de05b95f7cb76807a342575",
+  "dataset_source": "OpenGenGAME/super-mario-bros-rl-1-1",
+  "samples_sha256": "2f816c9c28aca9ead2cbbc2c4f62cc66a8ba0f2f68eecf8ec70d00f9433db3f4",
+  "alignment": "Images t-1,t; target actions.txt[t+1]. No future image is shown. Original collector environment-step alignment is not documented; this is next-annotation prediction, not a proven control policy.",
+  "hold_definition": "actions[t+1] == actions[t]; current action is stated only in hold question",
+  "action_mapping_source": "https://github.com/opengengame/super-mario-bros-1-1/blob/main/datasets/action_video.py",
+  "action_keys": [
+    "NOOP",
+    "right",
+    "right_A",
+    "right_B",
+    "right_A_B",
+    "A",
+    "left"
+  ],
+  "max_pixels": 200704,
+  "qwen_method": "Conditional next-token probability over one-token answer labels; no thinking or generation. Separate question prompts; fixed option order.",
+  "omnijev_method": "MSO1 typed heads, packed questions; temperature=1, noul bias=0; argmax includes abstention.",
+  "limitations": [
+    "Original 735-question identities/prompts/splits unavailable in inspected release",
+    "Samples may overlap OmniJev training; this is not a new held-out benchmark",
+    "Frames within a clip are correlated; no episode-level generalization claim",
+    "Qwen label likelihoods differ from unpublished original A1_raw implementation",
+    "No closed-loop game run or completion-rate measurement"
+  ],
+  "gold_counts": {
+    "mario_act": {
+      "right_B": 92,
+      "A": 20,
+      "right_A_B": 53,
+      "NOOP": 11,
+      "right_A": 24
+    },
+    "mario_jump": {
+      "no": 103,
+      "yes": 97
+    },
+    "mario_run": {
+      "yes": 145,
+      "no": 55
+    },
+    "mario_hold": {
+      "yes": 143,
+      "no": 57
+    }
+  }
+}

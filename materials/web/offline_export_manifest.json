@@ -1,0 +1,35 @@
+{
+  "purpose": "Self-contained offline replay of existing web/webtest results",
+  "exports": {
+    "web": {
+      "path": "/ssd-public/ai_infra/public/share/users/ziangsun/OmniJev-experiments/web-eval/sample100-seed20261009/web_offline.html",
+      "samples": 100,
+      "models": [
+        "omnijev",
+        "qwen4b"
+      ],
+      "images": 100,
+      "original_screenshots_preserved": true,
+      "bytes": 148701898,
+      "sha256": "66a6f2383533e8803b02717b626eff96efdd30b07ef3d133ca319efde52ea4d1",
+      "verified_predictions": 390,
+      "operation_filter": "ground-truth labels.op; navigation and playback use filtered samples",
+      "operation_statistics": "live filtered and complete per-operation accuracy for both models; abstentions count as wrong"
+    },
+    "webtest": {
+      "path": "/ssd-public/ai_infra/public/share/users/ziangsun/OmniJev-experiments/web-eval/sample100-seed20261009/webtest_offline.html",
+      "samples": 100,
+      "models": [
+        "omnijev",
+        "qwen4b"
+      ],
+      "images": 100,
+      "original_screenshots_preserved": true,
+      "bytes": 135357090,
+      "sha256": "7354f62e2629d3c4f0383d5383bca47e9905c9cd878aae644d946dadf1814e16",
+      "verified_predictions": 382,
+      "operation_filter": "ground-truth labels.op; navigation and playback use filtered samples",
+      "operation_statistics": "live filtered and complete per-operation accuracy for both models; abstentions count as wrong"
+    }
+  }
+}

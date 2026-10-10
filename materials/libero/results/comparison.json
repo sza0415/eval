@@ -1,0 +1,731 @@
+{
+  "purpose": "Custom paired frame diagnostic, not official robot_long reproduction or closed-loop task success",
+  "sample": {
+    "states": 250,
+    "questions": 500,
+    "episodes": 50,
+    "label_counts": {
+      "direction": {
+        "forward": 47,
+        "stay_still": 48,
+        "down": 38,
+        "right": 45,
+        "left": 27,
+        "up": 15,
+        "backward": 30
+      },
+      "gripper": {
+        "open": 131,
+        "close": 119
+      }
+    }
+  },
+  "uncertainty": "5000 paired stratified episode bootstrap replicates; seed 20261010; resample 5 episodes within each of 10 tasks.",
+  "validated": "Complete unique IDs, source hashes, identical gold labels, consistent correctness flags, valid probabilities, and matching pixels verified.",
+  "models": {
+    "omnijev": {
+      "states": 250,
+      "questions": 500,
+      "metrics": {
+        "direction": {
+          "correct": 33,
+          "total": 250,
+          "accuracy_percent": 13.2,
+          "forced_choice_accuracy_percent": 13.200000000000001,
+          "macro_f1_percent": 9.795677136102668,
+          "balanced_accuracy_percent": 18.702311333890282,
+          "abstentions": 0,
+          "invalid_format": 0,
+          "label_counts": {
+            "forward": 47,
+            "stay_still": 48,
+            "down": 38,
+            "right": 45,
+            "left": 27,
+            "up": 15,
+            "backward": 30
+          },
+          "majority_class": "stay_still",
+          "test_majority_class_baseline_percent": 19.2,
+          "confusion_matrix": {
+            "forward": {
+              "down": 14,
+              "left": 3,
+              "up": 27,
+              "stay_still": 2,
+              "backward": 1
+            },
+            "backward": {
+              "up": 11,
+              "down": 13,
+              "left": 5,
+              "stay_still": 1
+            },
+            "left": {
+              "left": 11,
+              "up": 9,
+              "right": 1,
+              "stay_still": 1,
+              "down": 5
+            },
+            "right": {
+              "left": 12,
+              "up": 24,
+              "down": 7,
+              "stay_still": 2
+            },
+            "up": {
+              "up": 8,
+              "down": 6,
+              "left": 1
+            },
+            "down": {
+              "left": 8,
+              "up": 13,
+              "down": 14,
+              "stay_still": 3
+            },
+            "stay_still": {
+              "up": 34,
+              "left": 5,
+              "down": 8,
+              "right": 1
+            }
+          },
+          "per_task": {
+            "0": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            },
+            "1": {
+              "correct": 3,
+              "total": 25,
+              "accuracy_percent": 12.0
+            },
+            "2": {
+              "correct": 6,
+              "total": 25,
+              "accuracy_percent": 24.0
+            },
+            "3": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            },
+            "4": {
+              "correct": 4,
+              "total": 25,
+              "accuracy_percent": 16.0
+            },
+            "5": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            },
+            "6": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "7": {
+              "correct": 1,
+              "total": 25,
+              "accuracy_percent": 4.0
+            },
+            "8": {
+              "correct": 4,
+              "total": 25,
+              "accuracy_percent": 16.0
+            },
+            "9": {
+              "correct": 4,
+              "total": 25,
+              "accuracy_percent": 16.0
+            }
+          },
+          "episode_bootstrap_accuracy_ci95_percent": [
+            10.000000000000004,
+            16.8
+          ]
+        },
+        "gripper": {
+          "correct": 145,
+          "total": 250,
+          "accuracy_percent": 58.0,
+          "forced_choice_accuracy_percent": 57.99999999999999,
+          "macro_f1_percent": 56.952393446924354,
+          "balanced_accuracy_percent": 57.38341137981911,
+          "abstentions": 0,
+          "invalid_format": 0,
+          "label_counts": {
+            "open": 131,
+            "close": 119
+          },
+          "majority_class": "open",
+          "test_majority_class_baseline_percent": 52.4,
+          "confusion_matrix": {
+            "open": {
+              "open": 92,
+              "close": 39
+            },
+            "close": {
+              "open": 66,
+              "close": 53
+            }
+          },
+          "per_task": {
+            "0": {
+              "correct": 13,
+              "total": 25,
+              "accuracy_percent": 52.0
+            },
+            "1": {
+              "correct": 11,
+              "total": 25,
+              "accuracy_percent": 44.0
+            },
+            "2": {
+              "correct": 15,
+              "total": 25,
+              "accuracy_percent": 60.0
+            },
+            "3": {
+              "correct": 15,
+              "total": 25,
+              "accuracy_percent": 60.0
+            },
+            "4": {
+              "correct": 14,
+              "total": 25,
+              "accuracy_percent": 56.00000000000001
+            },
+            "5": {
+              "correct": 15,
+              "total": 25,
+              "accuracy_percent": 60.0
+            },
+            "6": {
+              "correct": 14,
+              "total": 25,
+              "accuracy_percent": 56.00000000000001
+            },
+            "7": {
+              "correct": 16,
+              "total": 25,
+              "accuracy_percent": 64.0
+            },
+            "8": {
+              "correct": 16,
+              "total": 25,
+              "accuracy_percent": 64.0
+            },
+            "9": {
+              "correct": 16,
+              "total": 25,
+              "accuracy_percent": 64.0
+            }
+          },
+          "episode_bootstrap_accuracy_ci95_percent": [
+            52.400000000000006,
+            63.60000000000002
+          ]
+        }
+      },
+      "latency_two_questions_per_state": {
+        "median_seconds": 2.1097708780071116,
+        "p90_seconds": 2.1239961726983894,
+        "mean_seconds": 2.1224847257197834,
+        "total_seconds": 530.6211814299459
+      },
+      "peak_allocated_gib": 9.410368919372559,
+      "peak_reserved_gib": 9.658203125,
+      "overall_accuracy_percent": 35.6,
+      "both_questions_correct_states": 23,
+      "overall_episode_bootstrap_ci95_percent": [
+        32.2,
+        38.800000000000026
+      ]
+    },
+    "qwen-score": {
+      "states": 250,
+      "questions": 500,
+      "metrics": {
+        "direction": {
+          "correct": 46,
+          "total": 250,
+          "accuracy_percent": 18.4,
+          "forced_choice_accuracy_percent": 18.4,
+          "macro_f1_percent": 8.712711586946027,
+          "balanced_accuracy_percent": 15.269556870900654,
+          "abstentions": 0,
+          "invalid_format": 0,
+          "label_counts": {
+            "forward": 47,
+            "stay_still": 48,
+            "down": 38,
+            "right": 45,
+            "left": 27,
+            "up": 15,
+            "backward": 30
+          },
+          "majority_class": "stay_still",
+          "test_majority_class_baseline_percent": 19.2,
+          "confusion_matrix": {
+            "forward": {
+              "down": 26,
+              "forward": 2,
+              "stay_still": 19
+            },
+            "backward": {
+              "down": 7,
+              "stay_still": 20,
+              "forward": 3
+            },
+            "left": {
+              "down": 15,
+              "stay_still": 12
+            },
+            "right": {
+              "down": 22,
+              "stay_still": 20,
+              "forward": 3
+            },
+            "up": {
+              "stay_still": 11,
+              "down": 4
+            },
+            "down": {
+              "down": 20,
+              "stay_still": 16,
+              "forward": 2
+            },
+            "stay_still": {
+              "down": 22,
+              "stay_still": 24,
+              "forward": 2
+            }
+          },
+          "per_task": {
+            "0": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "1": {
+              "correct": 11,
+              "total": 25,
+              "accuracy_percent": 44.0
+            },
+            "2": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "3": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "4": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            },
+            "5": {
+              "correct": 0,
+              "total": 25,
+              "accuracy_percent": 0.0
+            },
+            "6": {
+              "correct": 4,
+              "total": 25,
+              "accuracy_percent": 16.0
+            },
+            "7": {
+              "correct": 6,
+              "total": 25,
+              "accuracy_percent": 24.0
+            },
+            "8": {
+              "correct": 6,
+              "total": 25,
+              "accuracy_percent": 24.0
+            },
+            "9": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            }
+          },
+          "mean_full_vocabulary_letter_mass": 0.9908243651390076,
+          "episode_bootstrap_accuracy_ci95_percent": [
+            13.600000000000001,
+            23.999999999999996
+          ]
+        },
+        "gripper": {
+          "correct": 118,
+          "total": 250,
+          "accuracy_percent": 47.2,
+          "forced_choice_accuracy_percent": 47.199999999999996,
+          "macro_f1_percent": 47.11538461538461,
+          "balanced_accuracy_percent": 47.501443325421775,
+          "abstentions": 0,
+          "invalid_format": 0,
+          "label_counts": {
+            "open": 131,
+            "close": 119
+          },
+          "majority_class": "open",
+          "test_majority_class_baseline_percent": 52.4,
+          "confusion_matrix": {
+            "open": {
+              "close": 77,
+              "open": 54
+            },
+            "close": {
+              "close": 64,
+              "open": 55
+            }
+          },
+          "per_task": {
+            "0": {
+              "correct": 10,
+              "total": 25,
+              "accuracy_percent": 40.0
+            },
+            "1": {
+              "correct": 7,
+              "total": 25,
+              "accuracy_percent": 28.000000000000004
+            },
+            "2": {
+              "correct": 8,
+              "total": 25,
+              "accuracy_percent": 32.0
+            },
+            "3": {
+              "correct": 12,
+              "total": 25,
+              "accuracy_percent": 48.0
+            },
+            "4": {
+              "correct": 15,
+              "total": 25,
+              "accuracy_percent": 60.0
+            },
+            "5": {
+              "correct": 13,
+              "total": 25,
+              "accuracy_percent": 52.0
+            },
+            "6": {
+              "correct": 13,
+              "total": 25,
+              "accuracy_percent": 52.0
+            },
+            "7": {
+              "correct": 12,
+              "total": 25,
+              "accuracy_percent": 48.0
+            },
+            "8": {
+              "correct": 10,
+              "total": 25,
+              "accuracy_percent": 40.0
+            },
+            "9": {
+              "correct": 18,
+              "total": 25,
+              "accuracy_percent": 72.0
+            }
+          },
+          "mean_full_vocabulary_letter_mass": 0.9995549464225769,
+          "episode_bootstrap_accuracy_ci95_percent": [
+            43.2,
+            51.59999999999999
+          ]
+        }
+      },
+      "latency_two_questions_per_state": {
+        "median_seconds": 4.092571617999056,
+        "p90_seconds": 4.128845304294373,
+        "mean_seconds": 4.106035561268276,
+        "total_seconds": 1026.508890317069
+      },
+      "peak_allocated_gib": 8.657912731170654,
+      "peak_reserved_gib": 8.69921875,
+      "overall_accuracy_percent": 32.8,
+      "both_questions_correct_states": 16,
+      "overall_episode_bootstrap_ci95_percent": [
+        29.799999999999997,
+        36.0
+      ]
+    },
+    "qwen-generate": {
+      "states": 250,
+      "questions": 500,
+      "metrics": {
+        "direction": {
+          "correct": 46,
+          "total": 250,
+          "accuracy_percent": 18.4,
+          "forced_choice_accuracy_percent": null,
+          "macro_f1_percent": 8.712711586946027,
+          "balanced_accuracy_percent": 15.269556870900654,
+          "abstentions": 0,
+          "invalid_format": 0,
+          "label_counts": {
+            "forward": 47,
+            "stay_still": 48,
+            "down": 38,
+            "right": 45,
+            "left": 27,
+            "up": 15,
+            "backward": 30
+          },
+          "majority_class": "stay_still",
+          "test_majority_class_baseline_percent": 19.2,
+          "confusion_matrix": {
+            "forward": {
+              "down": 26,
+              "forward": 2,
+              "stay_still": 19
+            },
+            "backward": {
+              "down": 7,
+              "stay_still": 20,
+              "forward": 3
+            },
+            "left": {
+              "down": 15,
+              "stay_still": 12
+            },
+            "right": {
+              "down": 22,
+              "stay_still": 20,
+              "forward": 3
+            },
+            "up": {
+              "stay_still": 11,
+              "down": 4
+            },
+            "down": {
+              "down": 20,
+              "stay_still": 16,
+              "forward": 2
+            },
+            "stay_still": {
+              "down": 22,
+              "stay_still": 24,
+              "forward": 2
+            }
+          },
+          "per_task": {
+            "0": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "1": {
+              "correct": 11,
+              "total": 25,
+              "accuracy_percent": 44.0
+            },
+            "2": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "3": {
+              "correct": 5,
+              "total": 25,
+              "accuracy_percent": 20.0
+            },
+            "4": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            },
+            "5": {
+              "correct": 0,
+              "total": 25,
+              "accuracy_percent": 0.0
+            },
+            "6": {
+              "correct": 4,
+              "total": 25,
+              "accuracy_percent": 16.0
+            },
+            "7": {
+              "correct": 6,
+              "total": 25,
+              "accuracy_percent": 24.0
+            },
+            "8": {
+              "correct": 6,
+              "total": 25,
+              "accuracy_percent": 24.0
+            },
+            "9": {
+              "correct": 2,
+              "total": 25,
+              "accuracy_percent": 8.0
+            }
+          },
+          "episode_bootstrap_accuracy_ci95_percent": [
+            13.600000000000001,
+            23.999999999999996
+          ]
+        },
+        "gripper": {
+          "correct": 118,
+          "total": 250,
+          "accuracy_percent": 47.2,
+          "forced_choice_accuracy_percent": null,
+          "macro_f1_percent": 47.11538461538461,
+          "balanced_accuracy_percent": 47.501443325421775,
+          "abstentions": 0,
+          "invalid_format": 0,
+          "label_counts": {
+            "open": 131,
+            "close": 119
+          },
+          "majority_class": "open",
+          "test_majority_class_baseline_percent": 52.4,
+          "confusion_matrix": {
+            "open": {
+              "close": 77,
+              "open": 54
+            },
+            "close": {
+              "close": 64,
+              "open": 55
+            }
+          },
+          "per_task": {
+            "0": {
+              "correct": 10,
+              "total": 25,
+              "accuracy_percent": 40.0
+            },
+            "1": {
+              "correct": 7,
+              "total": 25,
+              "accuracy_percent": 28.000000000000004
+            },
+            "2": {
+              "correct": 8,
+              "total": 25,
+              "accuracy_percent": 32.0
+            },
+            "3": {
+              "correct": 12,
+              "total": 25,
+              "accuracy_percent": 48.0
+            },
+            "4": {
+              "correct": 15,
+              "total": 25,
+              "accuracy_percent": 60.0
+            },
+            "5": {
+              "correct": 13,
+              "total": 25,
+              "accuracy_percent": 52.0
+            },
+            "6": {
+              "correct": 13,
+              "total": 25,
+              "accuracy_percent": 52.0
+            },
+            "7": {
+              "correct": 12,
+              "total": 25,
+              "accuracy_percent": 48.0
+            },
+            "8": {
+              "correct": 10,
+              "total": 25,
+              "accuracy_percent": 40.0
+            },
+            "9": {
+              "correct": 18,
+              "total": 25,
+              "accuracy_percent": 72.0
+            }
+          },
+          "episode_bootstrap_accuracy_ci95_percent": [
+            43.2,
+            51.59999999999999
+          ]
+        }
+      },
+      "latency_two_questions_per_state": {
+        "median_seconds": 4.199296455495642,
+        "p90_seconds": 4.243476102894055,
+        "mean_seconds": 4.221576866011426,
+        "total_seconds": 1055.3942165028566
+      },
+      "peak_allocated_gib": 8.731135845184326,
+      "peak_reserved_gib": 8.759765625,
+      "overall_accuracy_percent": 32.8,
+      "both_questions_correct_states": 16,
+      "overall_episode_bootstrap_ci95_percent": [
+        29.799999999999997,
+        36.0
+      ]
+    }
+  },
+  "paired": {
+    "qwen-score": {
+      "direction": {
+        "both_correct": 7,
+        "omnijev_only_correct": 26,
+        "qwen_only_correct": 39,
+        "both_wrong": 178,
+        "omnijev_minus_qwen_percentage_points": -5.199999999999999,
+        "paired_episode_bootstrap_delta_ci95_pp": [
+          -11.999999999999996,
+          1.200000000000001
+        ]
+      },
+      "gripper": {
+        "both_correct": 71,
+        "omnijev_only_correct": 74,
+        "qwen_only_correct": 47,
+        "both_wrong": 58,
+        "omnijev_minus_qwen_percentage_points": 10.799999999999997,
+        "paired_episode_bootstrap_delta_ci95_pp": [
+          3.6000000000000085,
+          18.000000000000004
+        ]
+      }
+    },
+    "qwen-generate": {
+      "direction": {
+        "both_correct": 7,
+        "omnijev_only_correct": 26,
+        "qwen_only_correct": 39,
+        "both_wrong": 178,
+        "omnijev_minus_qwen_percentage_points": -5.199999999999999,
+        "paired_episode_bootstrap_delta_ci95_pp": [
+          -11.999999999999996,
+          1.200000000000001
+        ]
+      },
+      "gripper": {
+        "both_correct": 71,
+        "omnijev_only_correct": 74,
+        "qwen_only_correct": 47,
+        "both_wrong": 58,
+        "omnijev_minus_qwen_percentage_points": 10.799999999999997,
+        "paired_episode_bootstrap_delta_ci95_pp": [
+          3.6000000000000085,
+          18.000000000000004
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,412 @@
+[
+  {
+    "uid": "task09-demo_17-t0027",
+    "task_id": 9,
+    "episode": "demo_17",
+    "timestep": 27,
+    "question_type": "gripper",
+    "question": {
+      "type": "choice",
+      "instructions": "The image contains two views of the same robot state: panel 1 is the fixed workspace camera and panel 2 is the wrist camera. Task: pick up the book and place it in the back compartment of the caddy.\nAt the NEXT recorded control step, will the demonstration issue an OPEN or CLOSE command to the gripper? A repeated OPEN command includes keeping it open; a repeated CLOSE command includes keeping it closed. Predict the command, not whether an object is currently held.",
+      "options": [
+        {
+          "key": "open",
+          "text": "open the gripper (or keep commanding it open)"
+        },
+        {
+          "key": "close",
+          "text": "close the gripper (or keep commanding it closed)"
+        }
+      ]
+    },
+    "label": "open",
+    "label_evidence": {
+      "delta_world_m": [
+        0.011876426518395544,
+        0.012436746013431671,
+        -0.029213240064287938
+      ],
+      "delta_camera_m": [
+        0.012436746013431671,
+        -0.03018941185261385,
+        -0.009113852856713517
+      ],
+      "axis_margin_m": 0.01775266583918218,
+      "next_gripper_action": -1
+    },
+    "image_sha256": "4c30168b1b9aa952f8a283a246b10ba874aa6fbd57ff1ef034699fbc27fd0d2b",
+    "predictions": {
+      "omnijev": {
+        "answer": {
+          "choice": "open",
+          "probabilities": {
+            "open": 0.5374,
+            "close": 0.4583
+          },
+          "abstain": 0.0043,
+          "valid": true,
+          "confidence": 0.3061,
+          "latency_s": 1.0498,
+          "latency_total_s": 2.0996
+        },
+        "correct": true,
+        "wall_seconds_two_questions": 2.1011277130019153
+      },
+      "qwen-score": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "probabilities": {
+            "open": 0.2938148081302643,
+            "close": 0.6220058798789978
+          },
+          "abstain": 0.0841793417930603,
+          "answer_letter": "B",
+          "full_vocabulary_letter_mass": 0.9995461702346802,
+          "unrestricted_next_token": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.105953338992549
+      },
+      "qwen-generate": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "format_ok": true,
+          "abstained": false,
+          "text": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.178711444998044
+      }
+    }
+  },
+  {
+    "uid": "task09-demo_17-t0046",
+    "task_id": 9,
+    "episode": "demo_17",
+    "timestep": 46,
+    "question_type": "gripper",
+    "question": {
+      "type": "choice",
+      "instructions": "The image contains two views of the same robot state: panel 1 is the fixed workspace camera and panel 2 is the wrist camera. Task: pick up the book and place it in the back compartment of the caddy.\nAt the NEXT recorded control step, will the demonstration issue an OPEN or CLOSE command to the gripper? A repeated OPEN command includes keeping it open; a repeated CLOSE command includes keeping it closed. Predict the command, not whether an object is currently held.",
+      "options": [
+        {
+          "key": "open",
+          "text": "open the gripper (or keep commanding it open)"
+        },
+        {
+          "key": "close",
+          "text": "close the gripper (or keep commanding it closed)"
+        }
+      ]
+    },
+    "label": "open",
+    "label_evidence": {
+      "delta_world_m": [
+        -0.008203815899179429,
+        -0.0011297746662366215,
+        -0.024281415419251662
+      ],
+      "delta_camera_m": [
+        -0.0011297746662366215,
+        -0.013736721138294824,
+        -0.021637749939368133
+      ],
+      "axis_margin_m": 0.00790102880107331,
+      "next_gripper_action": -1
+    },
+    "image_sha256": "2f752c38a47b9741ebfacb2edf8d01b9c50813bdff0e0690d205453fc15e4849",
+    "predictions": {
+      "omnijev": {
+        "answer": {
+          "choice": "open",
+          "probabilities": {
+            "open": 0.5543,
+            "close": 0.4447
+          },
+          "abstain": 0.001,
+          "valid": true,
+          "confidence": 0.3315,
+          "latency_s": 1.055,
+          "latency_total_s": 2.1101
+        },
+        "correct": true,
+        "wall_seconds_two_questions": 2.1115694690088276
+      },
+      "qwen-score": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "probabilities": {
+            "open": 0.3692992627620697,
+            "close": 0.537327229976654
+          },
+          "abstain": 0.09337347000837326,
+          "answer_letter": "B",
+          "full_vocabulary_letter_mass": 0.9997768998146057,
+          "unrestricted_next_token": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.079604372003814
+      },
+      "qwen-generate": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "format_ok": true,
+          "abstained": false,
+          "text": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.191408629994839
+      }
+    }
+  },
+  {
+    "uid": "task09-demo_30-t0007",
+    "task_id": 9,
+    "episode": "demo_30",
+    "timestep": 7,
+    "question_type": "gripper",
+    "question": {
+      "type": "choice",
+      "instructions": "The image contains two views of the same robot state: panel 1 is the fixed workspace camera and panel 2 is the wrist camera. Task: pick up the book and place it in the back compartment of the caddy.\nAt the NEXT recorded control step, will the demonstration issue an OPEN or CLOSE command to the gripper? A repeated OPEN command includes keeping it open; a repeated CLOSE command includes keeping it closed. Predict the command, not whether an object is currently held.",
+      "options": [
+        {
+          "key": "open",
+          "text": "open the gripper (or keep commanding it open)"
+        },
+        {
+          "key": "close",
+          "text": "close the gripper (or keep commanding it closed)"
+        }
+      ]
+    },
+    "label": "open",
+    "label_evidence": {
+      "delta_world_m": [
+        0.02457079982793331,
+        0.023205714015674048,
+        -0.002390784099667309
+      ],
+      "delta_camera_m": [
+        0.023205714015674048,
+        -0.01729703104906699,
+        0.017613993575654616
+      ],
+      "axis_margin_m": 0.005591720440019432,
+      "next_gripper_action": -1
+    },
+    "image_sha256": "d59d9b52defa9cb7128df0ff1cbf05d7e54f6f6d9bab889eefeebfee9da7a751",
+    "predictions": {
+      "omnijev": {
+        "answer": {
+          "choice": "open",
+          "probabilities": {
+            "open": 0.5429,
+            "close": 0.4531
+          },
+          "abstain": 0.0039,
+          "valid": true,
+          "confidence": 0.3144,
+          "latency_s": 1.0542,
+          "latency_total_s": 2.1083
+        },
+        "correct": true,
+        "wall_seconds_two_questions": 2.1098297310090857
+      },
+      "qwen-score": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "probabilities": {
+            "open": 0.3446420729160309,
+            "close": 0.5682187080383301
+          },
+          "abstain": 0.08713916689157486,
+          "answer_letter": "B",
+          "full_vocabulary_letter_mass": 0.9995671510696411,
+          "unrestricted_next_token": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.063617317005992
+      },
+      "qwen-generate": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "format_ok": true,
+          "abstained": false,
+          "text": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.341858900996158
+      }
+    }
+  },
+  {
+    "uid": "task09-demo_21-t0022",
+    "task_id": 9,
+    "episode": "demo_21",
+    "timestep": 22,
+    "question_type": "gripper",
+    "question": {
+      "type": "choice",
+      "instructions": "The image contains two views of the same robot state: panel 1 is the fixed workspace camera and panel 2 is the wrist camera. Task: pick up the book and place it in the back compartment of the caddy.\nAt the NEXT recorded control step, will the demonstration issue an OPEN or CLOSE command to the gripper? A repeated OPEN command includes keeping it open; a repeated CLOSE command includes keeping it closed. Predict the command, not whether an object is currently held.",
+      "options": [
+        {
+          "key": "open",
+          "text": "open the gripper (or keep commanding it open)"
+        },
+        {
+          "key": "close",
+          "text": "close the gripper (or keep commanding it closed)"
+        }
+      ]
+    },
+    "label": "open",
+    "label_evidence": {
+      "delta_world_m": [
+        0.02289623236287669,
+        0.026527016687869845,
+        0.00007903234950301652
+      ],
+      "delta_camera_m": [
+        0.026527016687869845,
+        -0.014323443575822513,
+        0.01786288517169997
+      ],
+      "axis_margin_m": 0.008664131516169876,
+      "next_gripper_action": -1
+    },
+    "image_sha256": "90e8c57b772d8be901825c84e2a3afd6cbc73f0d1bf961c3158c0b23bab3cf9d",
+    "predictions": {
+      "omnijev": {
+        "answer": {
+          "choice": "open",
+          "probabilities": {
+            "open": 0.5872,
+            "close": 0.4096
+          },
+          "abstain": 0.0031,
+          "valid": true,
+          "confidence": 0.3809,
+          "latency_s": 1.0484,
+          "latency_total_s": 2.0968
+        },
+        "correct": true,
+        "wall_seconds_two_questions": 2.098327410989441
+      },
+      "qwen-score": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "probabilities": {
+            "open": 0.3169822692871094,
+            "close": 0.5922008156776428
+          },
+          "abstain": 0.0908169373869896,
+          "answer_letter": "B",
+          "full_vocabulary_letter_mass": 0.9995957016944885,
+          "unrestricted_next_token": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.074038528007804
+      },
+      "qwen-generate": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "format_ok": true,
+          "abstained": false,
+          "text": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.209498095995514
+      }
+    }
+  },
+  {
+    "uid": "task09-demo_41-t0007",
+    "task_id": 9,
+    "episode": "demo_41",
+    "timestep": 7,
+    "question_type": "gripper",
+    "question": {
+      "type": "choice",
+      "instructions": "The image contains two views of the same robot state: panel 1 is the fixed workspace camera and panel 2 is the wrist camera. Task: pick up the book and place it in the back compartment of the caddy.\nAt the NEXT recorded control step, will the demonstration issue an OPEN or CLOSE command to the gripper? A repeated OPEN command includes keeping it open; a repeated CLOSE command includes keeping it closed. Predict the command, not whether an object is currently held.",
+      "options": [
+        {
+          "key": "open",
+          "text": "open the gripper (or keep commanding it open)"
+        },
+        {
+          "key": "close",
+          "text": "close the gripper (or keep commanding it closed)"
+        }
+      ]
+    },
+    "label": "open",
+    "label_evidence": {
+      "delta_world_m": [
+        0.0225104766604364,
+        0.03261870114322245,
+        -0.001218272573875634
+      ],
+      "delta_camera_m": [
+        0.03261870114322245,
+        -0.01509038741348754,
+        0.016747714926376268
+      ],
+      "axis_margin_m": 0.01587098621684618,
+      "next_gripper_action": -1
+    },
+    "image_sha256": "e304d6693d952e03b35f944cfc3eb250a5f9347bc2192796c179b7b7af4aab14",
+    "predictions": {
+      "omnijev": {
+        "answer": {
+          "choice": "open",
+          "probabilities": {
+            "open": 0.6445,
+            "close": 0.3532
+          },
+          "abstain": 0.0023,
+          "valid": true,
+          "confidence": 0.4667,
+          "latency_s": 1.237,
+          "latency_total_s": 2.4741
+        },
+        "correct": true,
+        "wall_seconds_two_questions": 2.476285873010056
+      },
+      "qwen-score": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "probabilities": {
+            "open": 0.3482074439525604,
+            "close": 0.5740970373153687
+          },
+          "abstain": 0.0776955783367157,
+          "answer_letter": "B",
+          "full_vocabulary_letter_mass": 0.9996320009231567,
+          "unrestricted_next_token": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.3475093570014
+      },
+      "qwen-generate": {
+        "answer": {
+          "choice": "close",
+          "valid": true,
+          "format_ok": true,
+          "abstained": false,
+          "text": "B"
+        },
+        "correct": false,
+        "wall_seconds_two_questions": 4.191299328987952
+      }
+    }
+  }
+]

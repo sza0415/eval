@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "oracle": "Independent NumPy length-five sliding windows; no generator imports",
+  "records": 300,
+  "questions": 1350,
+  "trajectory_moves_checked": 9402,
+  "unique_boards_up_to_rotation_and_reflection": 300,
+  "exact_matching_stone_counts_between_finished_and_unfinished": true,
+  "all_multiple_choice_questions_have_one_correct_offered_answer": true,
+  "all_images_decoded_and_all_initial_manifest_hashes_verified": true,
+  "binary_labels": {
+    "has_five": {
+      "1": 150,
+      "0": 150
+    },
+    "can_win_now": {
+      "1": 75,
+      "0": 75
+    },
+    "opponent_has_immediate_win": {
+      "1": 75,
+      "0": 75
+    }
+  },
+  "choice_gold_indices": {
+    "black_count": {
+      "1": 75,
+      "3": 75,
+      "2": 75,
+      "0": 75
+    },
+    "white_count": {
+      "2": 75,
+      "0": 75,
+      "1": 75,
+      "3": 75
+    },
+    "winning_move": {
+      "2": 19,
+      "0": 19,
+      "1": 19,
+      "3": 18
+    },
+    "blocking_move": {
+      "1": 19,
+      "3": 18,
+      "2": 19,
+      "0": 19
+    }
+  },
+  "preview_record_ids": [
+    "gmv1_0000",
+    "gmv1_0001",
+    "gmv1_0004",
+    "gmv1_0008",
+    "gmv1_0016",
+    "gmv1_0018"
+  ],
+  "model_inference_run": false
+}
