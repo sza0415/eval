@@ -19,6 +19,46 @@ REPORTS = {
 }
 DATA_URI = re.compile(r'data:image/(png|jpeg|webp);base64,([A-Za-z0-9+/=]+)')
 
+def customize_libero(html):
+    """Put the question viewer first and navigate within the filtered question set."""
+    html = html.replace('<a href="#overview">结果概览</a><a href="#tasks">逐任务成绩</a><a href="#samples">逐题查看</a>',
+                        '<a href="#samples">逐题查看</a><a href="#overview">结果概览</a><a href="#tasks">逐任务成绩</a>')
+    samples = re.search(r'<section id="samples">.*?</section>', html, re.S).group()
+    html = html.replace(samples, '', 1).replace('<section id="overview">', samples+'\n<section id="overview">', 1)
+    numbers = re.search(r'<div class="numbers">.*?(?=\n)', html).group()
+    html = html.replace(numbers, '', 1).replace('<section id="overview">', '<section id="overview">'+numbers, 1)
+    html = html.replace('原始输入 PNG 已嵌入', '按当前筛选顺序浏览 · 原始输入 PNG 已归档')
+    html = html.replace('<article class="detail" id="sampleDetail" aria-label="选中样本详情"></article>',
+        '<div class="question-viewer"><nav class="question-navigation" aria-label="逐题切换">'
+        '<button class="button" id="prevQuestion" type="button">← 上一题</button>'
+        '<span id="questionPosition" role="status" aria-live="polite" aria-atomic="true"></span>'
+        '<button class="button button-primary" id="nextQuestion" type="button">下一题 →</button>'
+        '</nav><article class="detail" id="sampleDetail" aria-label="选中样本详情"></article></div>')
+    html = html.replace('page=0;if(!filtered.some(i=>i.key===selected))selected=filtered[0]?.key??null;',
+        'if(!filtered.some(i=>i.key===selected))selected=filtered[0]?.key??null;page=Math.max(0,Math.floor(filtered.findIndex(i=>i.key===selected)/PAGE_SIZE));')
+    html = html.replace('function renderDetail(){', 'function renderDetail(){updateQuestionNavigation();', 1)
+    html = html.replace("function probs(answer,color){", """function updateQuestionNavigation(){
+const index=filtered.findIndex(i=>i.key===selected);
+el('questionPosition').textContent=index<0?'没有匹配的题目':`第 ${index+1} / ${filtered.length} 题`;
+el('prevQuestion').disabled=index<=0;
+el('nextQuestion').disabled=index<0||index>=filtered.length-1;
+}
+function moveQuestion(step){
+const index=filtered.findIndex(i=>i.key===selected),next=index+step;
+if(index<0||next<0||next>=filtered.length)return;
+selected=filtered[next].key;page=Math.floor(next/PAGE_SIZE);renderList();renderDetail();
+}
+function probs(answer,color){""", 1)
+    html = html.replace("el('prevPage').addEventListener", "el('prevQuestion').addEventListener('click',()=>moveQuestion(-1));\nel('nextQuestion').addEventListener('click',()=>moveQuestion(1));\nel('prevPage').addEventListener", 1)
+    html = html.replace('</style>', """
+.hero{padding:28px 0 24px}.numbers{margin-bottom:24px}.question-viewer{min-width:0}
+.question-navigation{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:8px}
+#questionPosition{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:center}
+@media(max-width:650px){.question-viewer{order:-1}.question-navigation{gap:8px;padding:10px}.question-navigation .button{padding:8px 10px}#questionPosition{font-size:12px}}
+@media print{.question-navigation{display:none}}
+</style>""", 1)
+    return html
+
 def convert(name, source):
     original = source.read_text()
     target = ROOT/'site'/name
@@ -48,6 +88,8 @@ def convert(name, source):
     html = html.replace('离线报告 · 全部完成', '评测报告 · 全部完成')
     html = html.replace('内嵌的数据、原始图片与未来参考图片', '归档的数据、原始图片与未来参考图片')
     html = html.replace('全部逻辑在本地运行，不进行网络请求。', '报告展示已归档的评测结果，图片从本站加载。')
+    if name == 'libero':
+        html = customize_libero(html)
     (target/'index.html').write_text(html)
     # Confirm the JSON evaluation payload is unchanged apart from image paths.
     def payloads(text):
