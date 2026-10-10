@@ -1,0 +1,97 @@
+{
+  "model": "omnijev",
+  "completed_questions": 1350,
+  "requested_questions": 1350,
+  "complete": true,
+  "by_task": {
+    "has_five": {
+      "correct": 187,
+      "total": 300,
+      "accuracy_percent": 62.333333333333336,
+      "forced_choice_accuracy_percent": 62.333333333333336,
+      "abstentions": 0,
+      "confusion_matrix_gold_then_prediction": {
+        "00": 90,
+        "01": 60,
+        "10": 53,
+        "11": 97
+      },
+      "yes_recall_percent": 64.66666666666667,
+      "no_recall_percent": 60.0,
+      "predicted_label_counts": {
+        "True": 157,
+        "False": 143
+      }
+    },
+    "black_count": {
+      "correct": 130,
+      "total": 300,
+      "accuracy_percent": 43.333333333333336,
+      "forced_choice_accuracy_percent": 43.333333333333336,
+      "abstentions": 0
+    },
+    "white_count": {
+      "correct": 123,
+      "total": 300,
+      "accuracy_percent": 41.0,
+      "forced_choice_accuracy_percent": 41.0,
+      "abstentions": 0
+    },
+    "can_win_now": {
+      "correct": 75,
+      "total": 150,
+      "accuracy_percent": 50.0,
+      "forced_choice_accuracy_percent": 50.0,
+      "abstentions": 0,
+      "confusion_matrix_gold_then_prediction": {
+        "00": 75,
+        "01": 0,
+        "10": 75,
+        "11": 0
+      },
+      "yes_recall_percent": 0.0,
+      "no_recall_percent": 100.0,
+      "predicted_label_counts": {
+        "False": 150
+      }
+    },
+    "opponent_has_immediate_win": {
+      "correct": 80,
+      "total": 150,
+      "accuracy_percent": 53.333333333333336,
+      "forced_choice_accuracy_percent": 53.333333333333336,
+      "abstentions": 0,
+      "confusion_matrix_gold_then_prediction": {
+        "00": 75,
+        "01": 0,
+        "10": 70,
+        "11": 5
+      },
+      "yes_recall_percent": 6.666666666666667,
+      "no_recall_percent": 100.0,
+      "predicted_label_counts": {
+        "False": 145,
+        "True": 5
+      }
+    },
+    "winning_move": {
+      "correct": 42,
+      "total": 75,
+      "accuracy_percent": 56.0,
+      "forced_choice_accuracy_percent": 56.0,
+      "abstentions": 0
+    },
+    "blocking_move": {
+      "correct": 38,
+      "total": 75,
+      "accuracy_percent": 50.666666666666664,
+      "forced_choice_accuracy_percent": 50.666666666666664,
+      "abstentions": 0
+    }
+  },
+  "micro_accuracy_percent": 50.0,
+  "macro_task_accuracy_percent": 50.952380952380956,
+  "invocation_wall_seconds": 92.8770483630069,
+  "peak_allocated_gib": 10.18638277053833,
+  "peak_reserved_gib": 11.53125
+}

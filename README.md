@@ -1,7 +1,7 @@
 # OmniJev / Qwen3.5 评测场景
 
-统一展示 LIBERO、Mario、WEB、WEBTEST 的真实对照评测记录，以及五子棋数据集准备进度。
-每个模型共完成 1,686 道题；五子棋尚未运行推理，不包含在该总数中。
+统一展示 LIBERO、Mario、WEB、WEBTEST 和五子棋的真实对照评测记录。
+五子棋新增 300 个棋盘、1,350 道题；每个模型合计完成 3,036 道题。
 
 ## 目录
 
@@ -9,8 +9,9 @@
 - `site/libero/`：500 题机器人评测；含 Qwen 打分与文本生成配置。
 - `site/mario/`：800 题游戏动作评测。
 - `site/web/`、`site/webtest/`：195 / 191 题网页操作及候选元素评测。
-- `site/gomoku/`：数据集说明、审计预览、统计和校验报告；未运行推理。
+- `site/gomoku/`：300 张原始棋盘、1,350 道题的双模型选择与候选概率，支持题型、答对情况和编号筛选；含汇总及校验报告。
 - `materials/`：按场景归档的原始结果、协议、依赖记录和复现脚本。
+- `scripts/prepare_gomoku.py`：核对 300 张五子棋原图、1,350 道题的标签和双模型预测，生成逐题查看数据。
 - `scripts/prepare_viewers.py`：把原始离线 HTML 转成静态网页并拆出原图。
 - `scripts/build.py`：校验已跟踪的网页和图片，并输出 `dist/`。
 
@@ -45,6 +46,7 @@ GitHub Pages 使用 `.github/workflows/pages.yml`：
 
 ```sh
 python3 scripts/prepare_viewers.py
+python3 scripts/prepare_gomoku.py
 python3 scripts/build.py
 ```
 

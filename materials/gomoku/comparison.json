@@ -1,0 +1,359 @@
+{
+  "scope": "Custom balanced synthetic Gomoku evaluation; not official OmniJev result reproduction.",
+  "boards": 300,
+  "questions_per_model": 1350,
+  "all_predictions_independently_rescored": true,
+  "protocols": {
+    "qwen": {
+      "model": "qwen",
+      "dataset": "/ssd-public/ai_infra/public/share/users/ziangsun/gomoku-eval-v1",
+      "questions_sha256": "d34955ae04e9fd459e2d4defd04a389071d25eefb5c5f0870f7bf7b686164de0",
+      "inputs_sha256": "7384e0b8165ecc9565118ccc6aa80b351319a032ec84c34b149e105cf5902206",
+      "script_sha256": "04f1497bd3f419f59d4e071cd08dce2d6665cc8be87e803a4d2c700a5548e09d",
+      "code_commit": "14dbec4f71e194852c8d7b88ab36ef639493f400",
+      "model_manifest": {
+        "repo": "Qwen/Qwen3.5-4B",
+        "requested_revision": "main",
+        "resolved_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+        "files": [
+          {
+            "path": ".gitattributes",
+            "bytes": 1570,
+            "sha256": null
+          },
+          {
+            "path": "LICENSE",
+            "bytes": 11544,
+            "sha256": null
+          },
+          {
+            "path": "README.md",
+            "bytes": 77661,
+            "sha256": null
+          },
+          {
+            "path": "chat_template.jinja",
+            "bytes": 7756,
+            "sha256": null
+          },
+          {
+            "path": "config.json",
+            "bytes": 3161,
+            "sha256": null
+          },
+          {
+            "path": "merges.txt",
+            "bytes": 3353259,
+            "sha256": null
+          },
+          {
+            "path": "model.safetensors-00001-of-00002.safetensors",
+            "bytes": 5329398688,
+            "sha256": "26a93f066e1916adb13453dae5a0c707c0fbc71299ed98779571a907b8e74c61"
+          },
+          {
+            "path": "model.safetensors-00002-of-00002.safetensors",
+            "bytes": 3990429408,
+            "sha256": "cb544bd9bfae93dc59b0f22b292f5933573854a7f9b97835c67060d7d910e188"
+          },
+          {
+            "path": "model.safetensors.index.json",
+            "bytes": 76196,
+            "sha256": null
+          },
+          {
+            "path": "preprocessor_config.json",
+            "bytes": 390,
+            "sha256": null
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 12807982,
+            "sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 16710,
+            "sha256": null
+          },
+          {
+            "path": "video_preprocessor_config.json",
+            "bytes": 385,
+            "sha256": null
+          },
+          {
+            "path": "vocab.json",
+            "bytes": 6722759,
+            "sha256": null
+          }
+        ],
+        "all_sizes_verified": true,
+        "lfs_sha256_verified": true
+      },
+      "max_pixels": 602112,
+      "dtype": "bfloat16",
+      "seed": 20261010,
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "torch_cpu_threads": 8,
+      "versions": {
+        "torch": "2.9.1+cu128",
+        "transformers": "5.5.0",
+        "peft": "0.19.1",
+        "Pillow": "12.3.0",
+        "fla-core": "0.5.2"
+      },
+      "requested_boards": 300,
+      "requested_questions": 1350,
+      "binary_rule": "P(yes) >= 0.5; label 1=yes, 0=no",
+      "choice_rule": "Highest probability among four candidates and abstain; abstain counts wrong. Also report forced choice among four candidates.",
+      "qwen_method": "Original model; non-thinking next-token answer-letter probabilities. Binary A=yes/B=no; choices A-D plus E=none of the above. No generated reasoning. Probabilities conditional on these letters, not calibrated correctness confidence.",
+      "omnijev_method": "Original MSO1.system_one branch API with checkpoint head, LoRA, and released calibration. Grouped image requests use isolated question branches, not a joint prompt.",
+      "scope": "Custom balanced synthetic Gomoku set; not official benchmark reproduction; no training or prompt tuning on labels.",
+      "latency_note": "Qwen individual prefills versus OmniJev shared image prefix; wall time is not a controlled architecture comparison.",
+      "patch_embedding": "Both models: mathematically equivalent flattened F.linear instead of whole-patch Conv3d. FP32 equivalence checked on eight actual input patches at rtol=atol=1e-4. BF16 kernel accumulation can differ.",
+      "pixel_preprocessing_parity_verified_boards": 300
+    },
+    "omnijev": {
+      "model": "omnijev",
+      "dataset": "/ssd-public/ai_infra/public/share/users/ziangsun/gomoku-eval-v1",
+      "questions_sha256": "d34955ae04e9fd459e2d4defd04a389071d25eefb5c5f0870f7bf7b686164de0",
+      "inputs_sha256": "7384e0b8165ecc9565118ccc6aa80b351319a032ec84c34b149e105cf5902206",
+      "script_sha256": "04f1497bd3f419f59d4e071cd08dce2d6665cc8be87e803a4d2c700a5548e09d",
+      "code_commit": "14dbec4f71e194852c8d7b88ab36ef639493f400",
+      "model_manifest": {
+        "repo": "tinnel123/OmniJev",
+        "requested_revision": "v1.1",
+        "resolved_revision": "ffe5f436eaf22e20e2f041f8e74e121fd057a6cb",
+        "files": [
+          {
+            "path": ".gitattributes",
+            "bytes": 1570,
+            "sha256": null
+          },
+          {
+            "path": "LICENSE",
+            "bytes": 11720,
+            "sha256": null
+          },
+          {
+            "path": "README.md",
+            "bytes": 6668,
+            "sha256": null
+          },
+          {
+            "path": "adapter_config.json",
+            "bytes": 1269,
+            "sha256": null
+          },
+          {
+            "path": "adapter_model.safetensors",
+            "bytes": 243854336,
+            "sha256": "96247914d7e2e68a7124c35c49393267c2beb98769d096f5172ed0043851f0f0"
+          },
+          {
+            "path": "chat_template.jinja",
+            "bytes": 7756,
+            "sha256": null
+          },
+          {
+            "path": "head.pt",
+            "bytes": 29418795,
+            "sha256": "7b801a1901040e70559deb74eadb11709540ff65ef926213ecf881e4f4070320"
+          },
+          {
+            "path": "head_meta.json",
+            "bytes": 1061,
+            "sha256": null
+          },
+          {
+            "path": "new_tok_emb.pt",
+            "bytes": 22085,
+            "sha256": "cd78e3440c03c7ace689ddb3b05f860c5cc59b710a8202cbc8f8252de1cd18de"
+          },
+          {
+            "path": "ord.pt",
+            "bytes": 10497109,
+            "sha256": "38c8e1bdb23f8ccd915dba75e05596d36fe2896f95c984166fc3713a027f5b68"
+          },
+          {
+            "path": "processor_config.json",
+            "bytes": 1189,
+            "sha256": null
+          },
+          {
+            "path": "release_manifest.json",
+            "bytes": 2240,
+            "sha256": null
+          },
+          {
+            "path": "results_v11.json",
+            "bytes": 1431463,
+            "sha256": null
+          },
+          {
+            "path": "results_v11_zh.md",
+            "bytes": 81531,
+            "sha256": null
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 19989712,
+            "sha256": "2f838eae798ef282bfcbbeb01645e728680e9b8b493ef3e0c63ff2d9ed28a8c4"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 1226,
+            "sha256": null
+          }
+        ],
+        "all_sizes_verified": true,
+        "lfs_sha256_verified": true
+      },
+      "max_pixels": 602112,
+      "dtype": "bfloat16",
+      "seed": 20261010,
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "torch_cpu_threads": 8,
+      "versions": {
+        "torch": "2.9.1+cu128",
+        "transformers": "5.5.0",
+        "peft": "0.19.1",
+        "Pillow": "12.3.0",
+        "fla-core": "0.5.2"
+      },
+      "requested_boards": 300,
+      "requested_questions": 1350,
+      "binary_rule": "P(yes) >= 0.5; label 1=yes, 0=no",
+      "choice_rule": "Highest probability among four candidates and abstain; abstain counts wrong. Also report forced choice among four candidates.",
+      "qwen_method": "Original model; non-thinking next-token answer-letter probabilities. Binary A=yes/B=no; choices A-D plus E=none of the above. No generated reasoning. Probabilities conditional on these letters, not calibrated correctness confidence.",
+      "omnijev_method": "Original MSO1.system_one branch API with checkpoint head, LoRA, and released calibration. Grouped image requests use isolated question branches, not a joint prompt.",
+      "scope": "Custom balanced synthetic Gomoku set; not official benchmark reproduction; no training or prompt tuning on labels.",
+      "latency_note": "Qwen individual prefills versus OmniJev shared image prefix; wall time is not a controlled architecture comparison.",
+      "patch_embedding": "Both models: mathematically equivalent flattened F.linear instead of whole-patch Conv3d. FP32 equivalence checked on eight actual input patches at rtol=atol=1e-4. BF16 kernel accumulation can differ.",
+      "calibration": {
+        "temperatures": {
+          "noul": 1.1991,
+          "choice": 1.1199,
+          "score": 1.1909
+        },
+        "biases": {
+          "noul": 0.05310856608843584
+        }
+      }
+    }
+  },
+  "tasks": {
+    "has_five": {
+      "n": 300,
+      "qwen_correct": 169,
+      "omnijev_correct": 187,
+      "qwen_accuracy_percent": 56.333333333333336,
+      "omnijev_accuracy_percent": 62.333333333333336,
+      "omnijev_minus_qwen_percentage_points": 6.0,
+      "both_correct": 118,
+      "qwen_only_correct": 51,
+      "omnijev_only_correct": 69,
+      "both_wrong": 62,
+      "qwen_forced_choice_accuracy_percent": 56.333333333333336,
+      "qwen_abstentions": 0,
+      "omnijev_forced_choice_accuracy_percent": 62.333333333333336,
+      "omnijev_abstentions": 0
+    },
+    "black_count": {
+      "n": 300,
+      "qwen_correct": 104,
+      "omnijev_correct": 130,
+      "qwen_accuracy_percent": 34.666666666666664,
+      "omnijev_accuracy_percent": 43.333333333333336,
+      "omnijev_minus_qwen_percentage_points": 8.666666666666666,
+      "both_correct": 61,
+      "qwen_only_correct": 43,
+      "omnijev_only_correct": 69,
+      "both_wrong": 127,
+      "qwen_forced_choice_accuracy_percent": 34.666666666666664,
+      "qwen_abstentions": 0,
+      "omnijev_forced_choice_accuracy_percent": 43.333333333333336,
+      "omnijev_abstentions": 0
+    },
+    "white_count": {
+      "n": 300,
+      "qwen_correct": 89,
+      "omnijev_correct": 123,
+      "qwen_accuracy_percent": 29.666666666666668,
+      "omnijev_accuracy_percent": 41.0,
+      "omnijev_minus_qwen_percentage_points": 11.333333333333334,
+      "both_correct": 42,
+      "qwen_only_correct": 47,
+      "omnijev_only_correct": 81,
+      "both_wrong": 130,
+      "qwen_forced_choice_accuracy_percent": 29.666666666666668,
+      "qwen_abstentions": 0,
+      "omnijev_forced_choice_accuracy_percent": 41.0,
+      "omnijev_abstentions": 0
+    },
+    "can_win_now": {
+      "n": 150,
+      "qwen_correct": 75,
+      "omnijev_correct": 75,
+      "qwen_accuracy_percent": 50.0,
+      "omnijev_accuracy_percent": 50.0,
+      "omnijev_minus_qwen_percentage_points": 0.0,
+      "both_correct": 0,
+      "qwen_only_correct": 75,
+      "omnijev_only_correct": 75,
+      "both_wrong": 0,
+      "qwen_forced_choice_accuracy_percent": 50.0,
+      "qwen_abstentions": 0,
+      "omnijev_forced_choice_accuracy_percent": 50.0,
+      "omnijev_abstentions": 0
+    },
+    "opponent_has_immediate_win": {
+      "n": 150,
+      "qwen_correct": 73,
+      "omnijev_correct": 80,
+      "qwen_accuracy_percent": 48.666666666666664,
+      "omnijev_accuracy_percent": 53.333333333333336,
+      "omnijev_minus_qwen_percentage_points": 4.666666666666667,
+      "both_correct": 59,
+      "qwen_only_correct": 14,
+      "omnijev_only_correct": 21,
+      "both_wrong": 56,
+      "qwen_forced_choice_accuracy_percent": 48.666666666666664,
+      "qwen_abstentions": 0,
+      "omnijev_forced_choice_accuracy_percent": 53.333333333333336,
+      "omnijev_abstentions": 0
+    },
+    "winning_move": {
+      "n": 75,
+      "qwen_correct": 22,
+      "omnijev_correct": 42,
+      "qwen_accuracy_percent": 29.333333333333332,
+      "omnijev_accuracy_percent": 56.0,
+      "omnijev_minus_qwen_percentage_points": 26.666666666666668,
+      "both_correct": 13,
+      "qwen_only_correct": 9,
+      "omnijev_only_correct": 29,
+      "both_wrong": 24,
+      "qwen_forced_choice_accuracy_percent": 38.666666666666664,
+      "qwen_abstentions": 19,
+      "omnijev_forced_choice_accuracy_percent": 56.0,
+      "omnijev_abstentions": 0
+    },
+    "blocking_move": {
+      "n": 75,
+      "qwen_correct": 13,
+      "omnijev_correct": 38,
+      "qwen_accuracy_percent": 17.333333333333332,
+      "omnijev_accuracy_percent": 50.666666666666664,
+      "omnijev_minus_qwen_percentage_points": 33.333333333333336,
+      "both_correct": 8,
+      "qwen_only_correct": 5,
+      "omnijev_only_correct": 30,
+      "both_wrong": 32,
+      "qwen_forced_choice_accuracy_percent": 32.0,
+      "qwen_abstentions": 42,
+      "omnijev_forced_choice_accuracy_percent": 50.666666666666664,
+      "omnijev_abstentions": 0
+    }
+  }
+}

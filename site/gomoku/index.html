@@ -1,8 +1,40 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>五子棋 · 数据集与校验 | Eval</title><link rel="stylesheet" href="../assets/site.css"></head><body>
-<header class="top"><div class="wrap top-inner"><a class="brand" href="../index.html">← EVAL / EXPERIMENTS</a><span class="status pending">数据已校验 · 待评测</span></div></header>
-<main class="wrap"><section class="hero"><p class="eyebrow">Gomoku eval v1 / Seed 20261010</p><h1>五子棋，先把题目<br>和标签做扎实。</h1><p class="intro">300 个 15×15 合法合成棋盘，共 1,350 道题。数据集已生成并通过独立校验，当前尚无 OmniJev 或 Qwen 的推理成绩。</p><div class="chips"><span class="chip">7 类问题</span><span class="chip">300 个旋转 / 镜像也不重复的棋盘</span><span class="chip">9,402 步落子已检查</span></div></section>
-<p class="notice">本页展示数据集准备进度。没有运行模型评测，因此不显示模型准确率，也不与官网五子棋分数比较。</p>
-<h2>六种代表局面</h2><p class="muted">这是带标签的审计预览。实际模型输入图片不含答案、计数、输赢或最后一步标记。</p><img class="preview" src="preview.png" alt="已获胜与未结束五子棋局面的六种代表状态，含审计标签">
-<h2>题型与规模</h2><div class="table-wrap"><table><thead><tr><th>题型</th><th>题数</th><th>判断内容</th></tr></thead><tbody><tr><td>已有五连</td><td>300</td><td>任一方是否已有连续至少五子</td></tr><tr><td>黑子计数</td><td>300</td><td>四个候选整数中选择黑子数量</td></tr><tr><td>白子计数</td><td>300</td><td>四个候选整数中选择白子数量</td></tr><tr><td>当前方一步获胜</td><td>150</td><td>下一手能否形成至少五连</td></tr><tr><td>对方一步威胁</td><td>150</td><td>假设对方落一子，能否形成至少五连</td></tr><tr><td>获胜落子</td><td>75</td><td>四个空位候选中，哪一个能立即形成至少五连</td></tr><tr><td>阻挡落子</td><td>75</td><td>哪一个候选能消除对方全部一步五连完成点</td></tr></tbody></table></div>
-<section class="section"><h2>规则与验证</h2><p>自由五子棋：横、竖与两条斜线，连续至少五子即获胜；长连也获胜，无禁手、交换或特殊开局。黑先白后，每个棋盘附有完整合法落子历史，首次获胜立即结束。</p><p>150 个已获胜局面（黑胜 75、白胜 75），150 个未结束局面。正负局面的黑白棋子数量分布相同；二分类答案各半。计数候选的正确位置均衡，落子选择题只有一个正确候选。</p><p>生成器和独立验证器使用不同算法。验证器逐步检查了 9,402 步落子，核对标签、候选、棋盘唯一性及图像校验值。这里的轨迹是合法合成落子顺序，未评测长期策略或闭环胜率。</p><div class="links"><a href="statistics.json" download>下载标签统计 JSON</a><a href="validation.json" download>下载校验报告 JSON</a><a href="baselines.json" download>下载基线 JSON</a></div></section>
-</main><footer class="footer"><div class="wrap">生成日期 2026.10.10 · 本页仅展示已完成的数据准备与校验</div></footer></body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="OmniJev 与 Qwen3.5 在独立合成五子棋评测集上的逐题对比结果。"><title>五子棋 · 模型对比结果 | Eval</title><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="gomoku.css"></head>
+<body class="gomoku-page">
+<header class="top"><div class="wrap top-inner"><a class="brand" href="../index.html">← EVAL / EXPERIMENTS</a><span class="status">评测已完成 · 2026.10.10</span></div></header>
+<main class="wrap">
+<section class="compact-header"><div><h1>五子棋 · 模型对比</h1><p>300 个棋盘 · 1,350 道题 · 7 类任务</p></div><div class="compact-scores" aria-label="整体准确率"><span><b class="omni-text">50.00%</b> OmniJev</span><span><b class="qwen-text">40.37%</b> Qwen3.5</span></div></section>
+<section class="examples" id="examples" aria-labelledby="examples-title">
+  <div class="examples-heading"><h2 id="examples-title">逐题结果</h2><span class="example-count" id="example-count" aria-live="polite">加载中…</span></div>
+  <div class="example-toolbar">
+    <label for="example-task">题型<select id="example-task"><option value="all">全部题型</option><option value="has_five">已有五连</option><option value="black_count">黑子计数</option><option value="white_count">白子计数</option><option value="can_win_now">己方一步获胜</option><option value="opponent_has_immediate_win">对方一步威胁</option><option value="winning_move">选择获胜落点</option><option value="blocking_move">选择阻挡落点</option></select></label>
+    <label for="example-result">结果<select id="example-result"><option value="all">全部结果</option><option value="different">两个模型不同</option><option value="omni-only">仅 OmniJev 正确</option><option value="qwen-only">仅 Qwen 正确</option><option value="both-right">两个都正确</option><option value="both-wrong">两个都错误</option></select></label>
+    <label class="example-search" for="example-search">搜索编号<input id="example-search" type="search" placeholder="gmv1_0004"></label>
+  </div>
+  <div class="example-nav"><button id="example-prev" type="button">← 上一题</button><select id="example-select" aria-label="选择题目"></select><button id="example-next" type="button">下一题 →</button><span id="example-position" aria-live="polite"></span></div>
+  <noscript><p class="notice">请启用 JavaScript 查看全部逐题结果；汇总表和下载链接仍可直接使用。</p></noscript>
+  <div class="example-layout" id="example-layout"><figure class="example-board"><img id="example-image" alt="当前五子棋棋盘"><figcaption id="example-caption"></figcaption><a id="example-original" target="_blank" rel="noopener">查看原尺寸棋盘 ↗</a></figure><div class="example-detail"><div class="example-meta"><span class="family" id="example-task-name"></span><span id="example-id"></span></div><h3 id="example-question"></h3><p id="example-prompt" class="muted"></p><p class="fine">候选概率用来比较模型在本题的输出；两个模型的概率计算方式不同。</p><div class="gold-answer"><span>标准答案</span><strong id="example-gold"></strong></div><div class="answer-columns"><article class="answer-card qwen-card"><div class="answer-head"><span>Qwen3.5-4B</span><strong id="example-qwen-status"></strong></div><div class="answer-main"><b id="example-qwen-answer"></b><span id="example-qwen-confidence"></span></div><div id="example-qwen-options" class="answer-options"></div></article><article class="answer-card omni-card"><div class="answer-head"><span>OmniJev-4B-v1.1</span><strong id="example-omni-status"></strong></div><div class="answer-main"><b id="example-omni-answer"></b><span id="example-omni-confidence"></span></div><div id="example-omni-options" class="answer-options"></div></article></div></div></div>
+  <details id="example-raw"><summary>查看当前题目的原始记录</summary><pre id="example-json"></pre></details>
+  <p id="example-empty" class="empty" hidden>没有匹配的题目。</p>
+</section>
+<details class="report-details"><summary>汇总成绩与评测说明</summary><h2>按任务比较</h2><p class="muted">每一行都使用同一批棋盘和同一组问题。差值是 OmniJev 准确率减去 Qwen 准确率。</p>
+<div class="table-wrap"><table><thead><tr><th>任务</th><th>题数</th><th class="omni-text">OmniJev</th><th class="qwen-text">Qwen3.5</th><th>差值</th></tr></thead><tbody>
+<tr><td>已有五连</td><td>300</td><td class="omni-text">62.33%</td><td class="qwen-text">56.33%</td><td class="positive">+6.00</td></tr>
+<tr><td>黑子计数</td><td>300</td><td class="omni-text">43.33%</td><td class="qwen-text">34.67%</td><td class="positive">+8.67</td></tr>
+<tr><td>白子计数</td><td>300</td><td class="omni-text">41.00%</td><td class="qwen-text">29.67%</td><td class="positive">+11.33</td></tr>
+<tr><td>己方一步获胜</td><td>150</td><td class="omni-text">50.00%</td><td class="qwen-text">50.00%</td><td>+0.00</td></tr>
+<tr><td>对方一步获胜威胁</td><td>150</td><td class="omni-text">53.33%</td><td class="qwen-text">48.67%</td><td class="positive">+4.67</td></tr>
+<tr><td>选择获胜落点</td><td>75</td><td class="omni-text">56.00%</td><td class="qwen-text">29.33%</td><td class="positive strong">+26.67</td></tr>
+<tr><td>选择阻挡落点</td><td>75</td><td class="omni-text">50.67%</td><td class="qwen-text">17.33%</td><td class="positive strong">+33.33</td></tr>
+</tbody></table></div>
+<section class="callout"><div><span class="eyebrow">Largest gaps</span><h2>落点选择是差距最大的部分</h2><p>在“选择获胜落点”和“选择阻挡落点”中，OmniJev 分别高出 26.67 和 33.33 个百分点。计数任务也有 8.67–11.33 个百分点的差距。</p></div><div class="gap-bars"><div><span>阻挡落点</span><i><b style="width:33.33%"></b></i><em>+33.33</em></div><div><span>获胜落点</span><i><b style="width:26.67%"></b></i><em>+26.67</em></div><div><span>白子计数</span><i><b style="width:11.33%"></b></i><em>+11.33</em></div></div></section>
+<h2>选择题的弃答</h2><p class="muted">OmniJev 的发布接口会显式返回 abstain；Qwen 的候选字母概率也按同样规则加入“以上皆非”。主表把弃答计为错误，下面同时列出强制选择结果。</p>
+<div class="table-wrap"><table><thead><tr><th>选择题</th><th>Qwen 强制选择</th><th>OmniJev 强制选择</th><th>Qwen 弃答</th><th>OmniJev 弃答</th></tr></thead><tbody><tr><td>黑子计数</td><td>34.67%</td><td>43.33%</td><td>0</td><td>0</td></tr><tr><td>白子计数</td><td>29.67%</td><td>41.00%</td><td>0</td><td>0</td></tr><tr><td>选择获胜落点</td><td>38.67%</td><td>56.00%</td><td>19</td><td>0</td></tr><tr><td>选择阻挡落点</td><td>32.00%</td><td>50.67%</td><td>42</td><td>0</td></tr></tbody></table></div>
+
+
+<h2>棋盘预览与数据集</h2><p class="muted">下图是带审计标签的六个代表局面；实际模型输入图片不含答案、计数、输赢或最后一步标记。</p><img class="preview" src="preview.png" alt="六种代表性五子棋局面预览，包含已获胜和未结束局面">
+<section class="section"><h2>评测协议</h2><p>棋盘为 15×15 自由五子棋，黑先白后，横、竖、两条斜线连续至少五子即获胜，长连也获胜。数据集包含 150 个终局和 150 个未结束局面，所有棋盘与旋转、镜像均不重复；9,402 步合成落子历史已由独立算法检查。</p><p>Qwen 使用原始 Qwen3.5-4B 权重，关闭 thinking，通过答案字母的下一 token 概率作答。OmniJev 使用 MSO1 接口、LoRA、决策头及发布的校准参数。两个模型使用相同图片和 768×28×28 的像素预算。本页结果是独立合成数据集上的诊断，不是 OmniJev 官方分数的复现，也不代表专家棋力、长期最优策略或闭环胜率。</p><div class="links"><a href="comparison.json" download>下载对照结果 JSON</a><a href="comparison.csv" download>下载对照结果 CSV</a><a href="statistics.json" download>下载数据统计 JSON</a><a href="validation.json" download>下载校验报告 JSON</a><a href="qwen-summary.json" download>下载 Qwen 汇总</a><a href="omnijev-summary.json" download>下载 OmniJev 汇总</a></div></section>
+</details>
+</main><footer class="footer"><div class="wrap">生成日期 2026.10.10 · 五子棋结果展示 · 不调用模型</div></footer><script src="examples-data.js"></script><script src="examples.js"></script>
+
+</body></html>

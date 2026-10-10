@@ -27,6 +27,10 @@ for name, report in manifest.items():
         image = SITE/name/relative
         assert image.stat().st_size == meta['bytes'], image
         assert hashlib.sha256(image.read_bytes()).hexdigest() == meta['sha256'], image
+    for relative, meta in report.get('data_files', {}).items():
+        data = SITE/name/relative
+        assert data.stat().st_size == meta['bytes'], data
+        assert hashlib.sha256(data.read_bytes()).hexdigest() == meta['sha256'], data
 
 for page in SITE.rglob('*.html'):
     html = page.read_text()

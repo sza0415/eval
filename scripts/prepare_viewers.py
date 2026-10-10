@@ -62,7 +62,9 @@ def convert(name, source):
             'evaluation_json_verified': bool(before)}
 
 def main():
-    manifest = {name: convert(name, source) for name, source in REPORTS.items()}
+    path = ROOT/'site/import-manifest.json'
+    manifest = json.loads(path.read_text()) if path.exists() else {}
+    manifest.update({name: convert(name, source) for name, source in REPORTS.items()})
     (ROOT/'site/import-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n')
     print(json.dumps({name: {'images': m['image_count'], 'payload_verified': m['evaluation_json_verified']} for name, m in manifest.items()}, indent=2))
 
