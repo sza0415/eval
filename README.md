@@ -1,5 +1,5 @@
 # OmniJev / Qwen3.5 评测场景
-
+web界面：https://sza0415.github.io/eval/
 统一展示 LIBERO、Mario、WEB、WEBTEST 和五子棋的真实对照评测记录。
 五子棋新增 300 个棋盘、1,350 道题；每个模型合计完成 3,036 道题。
 
